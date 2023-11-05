@@ -3,8 +3,7 @@
 GyverOLED<SSD1306_128x64, OLED_NO_BUFFER> oled;
 
 bool ReadMode = true;
-button btn1(3); // указываем пин
-//button btn2(4);
+button btn1(3);         // кнопка
 String dd;
 String type;
 
@@ -13,8 +12,8 @@ String type;
 
 #define SS_PIN 10
 #define RST_PIN 9
-#define speakerPin 7       // Спикер, он же buzzer, он же beeper
-#define AllGnd 4
+#define speakerPin 7       // + спикера
+#define AllGnd 4           // -спикера
 
 MFRC522 rfid(SS_PIN, RST_PIN); // Instance of the class
 
@@ -41,7 +40,7 @@ void setup() {
   pinMode(AllGnd, OUTPUT); digitalWrite(AllGnd, LOW); // подключаем - пин спикера к земле
 
   Serial.begin(9600);
-  //Sd_StartOK();
+  Sd_StartOK();
   SPI.begin(); // Init SPI bus
   rfid.PCD_Init(); // Init MFRC522
 
